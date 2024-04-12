@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 4290504773289632855}
   - component: {fileID: 8899047748203924317}
   - component: {fileID: 8283122384957007033}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Clear Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6, y: 1, z: 0.6}
+  m_Size: {x: 0.8, y: 1, z: 0.8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8283122384957007033
 Rigidbody:

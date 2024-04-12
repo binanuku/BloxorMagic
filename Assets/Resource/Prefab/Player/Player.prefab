@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4074591996101342973}
   - component: {fileID: 4134431302360796001}
   - component: {fileID: 6757392217209557806}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 7831002658250792287}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.06, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -184,12 +184,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3415520ec63f1c43b459c99c11c9da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rollPoint: {fileID: 4103773234693401798, guid: 8106d067be02c014f9eb39041e3effba, type: 3}
+  _rollPoint: {fileID: 0}
   _contactWall: {fileID: 0}
   _mainCamera: {fileID: 0}
   _contactWallLayer:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 0
 --- !u!65 &6757392217209557806
 BoxCollider:
   m_ObjectHideFlags: 0
