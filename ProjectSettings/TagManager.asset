@@ -15,9 +15,9 @@ TagManager:
   - WallY
   - WallZ
   - Panel
-  - 
-  - 
-  - 
+  - ClearPanel
+  - GlassPanel
+  - GeneratePanel
   - 
   - 
   - 

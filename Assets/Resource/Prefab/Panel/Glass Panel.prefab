@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4066924266687766417}
   - component: {fileID: 4214362554780340975}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4, y: 0.9, z: 0.9}
+  m_Size: {x: 0.35, y: 1, z: 0.8}
   m_Center: {x: -0.25, y: 0, z: 0}
 --- !u!1 &952060232361363899
 GameObject:
@@ -231,8 +231,9 @@ GameObject:
   - component: {fileID: 5066777534342182706}
   - component: {fileID: 8045808413969222009}
   - component: {fileID: 9049539092927291388}
-  m_Layer: 9
-  m_Name: GlassPanel
+  - component: {fileID: 538487736559323328}
+  m_Layer: 11
+  m_Name: Glass Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -336,6 +337,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &538487736559323328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952060232361363899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38440335e50de4a45af43ed09e80ca52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6442072864901348023
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8735019329071475688}
   - component: {fileID: 8212242167675366816}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +483,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4, y: 0.9, z: 0.9}
+  m_Size: {x: 0.35, y: 1, z: 0.8}
   m_Center: {x: 0.25, y: 0, z: 0}
 --- !u!1 &7976631133371929528
 GameObject:
