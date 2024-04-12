@@ -12,10 +12,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform _contactWall;
     [SerializeField] Transform _mainCamera;
     [SerializeField] Transform _player;
+    Rigidbody _playerRb;
 
     private float _rollSpeed = 5;
     private bool _isMooving;
-    private bool _isFall;
+    private bool _isFalling;
 
     Vector3 _center;
     Vector3 _axis;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        _playerRb = _player.GetComponent<Rigidbody>();
         F_Initialize();
     }
 
@@ -37,12 +39,14 @@ public class PlayerMovement : MonoBehaviour
         _mainCamera.position = transform.position + new Vector3(0, 5, -6.5f);
     }
 
-    void F_Initialize()
+    public void F_Initialize()
     {
         _isMooving = false;
-        _isFall = true;
+        _isFalling = true;
         _player.position = new Vector3(0, 2.5f, 0);
-        _player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+        _contactWall.position = transform.position;
+        _playerRb.constraints = RigidbodyConstraints.FreezeAll;
+        _playerRb.constraints &= ~RigidbodyConstraints.FreezePositionY;
     }
 
     void F_Move()
@@ -95,5 +99,21 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _isMooving = false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Enter" + collision);
+        if (collision.gameObject.CompareTag("Panel") && _isFalling){
+            _playerRb.constraints = RigidbodyConstraints.FreezeAll;
+            _isFalling = false;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        Debug.Log("Exit" + collision);
+        if (_isFalling)
+            _playerRb.constraints &= ~RigidbodyConstraints.FreezePositionY;
     }
 }

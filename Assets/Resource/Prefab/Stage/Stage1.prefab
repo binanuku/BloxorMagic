@@ -54,7 +54,7 @@ Transform:
   - {fileID: 6370363796291193180}
   - {fileID: 555471830505055405}
   - {fileID: 5726912787934698794}
-  - {fileID: 509893181324153809}
+  - {fileID: 4798699969309345807}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &87990662889506114
@@ -1615,6 +1615,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1239891260308814780}
     m_Modifications:
+    - target: {fileID: 4459206288615959154, guid: 634255ad3ef37204f8a5d6c1e4945058, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6587135911342631516, guid: 634255ad3ef37204f8a5d6c1e4945058, type: 3}
       propertyPath: m_Name
       value: Clear Panel
@@ -1664,8 +1668,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 634255ad3ef37204f8a5d6c1e4945058, type: 3}
---- !u!4 &509893181324153809 stripped
+--- !u!4 &4798699969309345807 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8676643630678585772, guid: 634255ad3ef37204f8a5d6c1e4945058, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4459206288615959154, guid: 634255ad3ef37204f8a5d6c1e4945058, type: 3}
   m_PrefabInstance: {fileID: 9185689904313066109}
   m_PrefabAsset: {fileID: 0}
