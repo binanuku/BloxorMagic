@@ -15,15 +15,14 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody _playerRb;
 
     private float _rollSpeed = 3;
-    [SerializeField] private bool _isMooving;
+    private bool _isMooving;
+    private bool _isOut;
 
     Vector3 _center;
     Vector3 _axis;
 
     RaycastHit _hit;
     [SerializeField] LayerMask _contactWallLayer;
-    //https://mstfmrt07.medium.com/making-a-bloxorz-game-in-unity-part-i-roll-the-cube-67113d48415a
-    //플레이어 상단에 레이 쏴서 레이에 닿는 콜라이더 레이어에 따른 방향값을 토대로 기준점 구하기
 
     private void Start()
     {
@@ -41,14 +40,14 @@ public class PlayerMovement : MonoBehaviour
     public void F_Initialize()
     {
         _isMooving = false;
+        _isOut = false;
         _player.position = new Vector3(0, 2.5f, 0);
         _contactWall.position = _player.position;
-        
     }
 
     void F_Move()
     {
-        if (_isMooving) return;
+        if (_isMooving || _isOut) return;
 
         if (Input.GetKey(KeyCode.A)) F_GetRollPoint(Vector3.left);
         else if (Input.GetKey(KeyCode.D)) F_GetRollPoint(Vector3.right);
@@ -80,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //_rollPoint._player.position = _center;
+        //_rollPoint.transform.position = _center;
         _axis = Vector3.Cross(Vector3.up, dir);
         StartCoroutine(F_Rolling(_center, _axis));
     }
@@ -100,10 +99,12 @@ public class PlayerMovement : MonoBehaviour
         _isMooving = false;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-    }
-    private void OnCollisionExit(Collision collision)
-    {
+        if (other.transform.CompareTag("DeadPanel"))
+        {
+            _isOut = true;
+            _player.GetComponent<BoxCollider>().isTrigger = true;
+        }
     }
 }
