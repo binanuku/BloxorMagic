@@ -3,7 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PanelManager : MonoBehaviour
+public class PanelManager : MonoBehaviour
 {
-    public abstract void F_Interaction();
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
+    public void F_Interaction(Collision col, Rigidbody rb) {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
+        }
+    }
 }

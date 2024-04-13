@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class GlassPaner : PanelManager
 {
-    public override void F_Interaction()
+    Rigidbody glassRb;
+
+    private void Start()
     {
-
+        glassRb = GetComponent<Rigidbody>();
     }
-
     private void OnCollisionEnter(Collision collision)
     {
-        F_Interaction();
+        F_Interaction(collision, glassRb);
     }
 }

@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ClearPaner : PanelManager
 {
-    public override void F_Interaction()
+    Rigidbody clearRb;
+    [SerializeField] GameObject clearUI;
+
+    private void Start()
     {
-
+        clearRb = GetComponent<Rigidbody>();
     }
-
     private void OnCollisionEnter(Collision collision)
     {
-        F_Interaction();
+        F_Interaction(collision, clearRb);
+        clearUI.SetActive(true);
     }
 }
