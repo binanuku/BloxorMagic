@@ -8,15 +8,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //[SerializeField] GameObject _rollPoint;
-    [SerializeField] Transform _contactWall;
-    [SerializeField] Transform _mainCamera;
-    [SerializeField] Transform _player;
+    //[SerializeField] GameObject _rollPoint; 회전할 때 기준점 표시
+    [SerializeField] Transform _contactWall; //플레이어가 쏘는 레이가 충돌할 벽
+    [SerializeField] Transform _mainCamera; //카메라
     Rigidbody _playerRb;
 
-    private float _rollSpeed = 3;
-    private bool _isMooving;
-    private bool _isOut;
+    private float _rollSpeed = 3; //회전 속도
+    private bool _isMooving; //회전하는동안 추가 회전이 안되게 함
+    private bool _isOut; //사망하면 조작이 안되게 함
 
     Vector3 _center;
     Vector3 _axis;
@@ -26,26 +25,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        _playerRb = _player.GetComponent<Rigidbody>();
+        _playerRb = transform.GetComponent<Rigidbody>();
         F_Initialize();
     }
 
     private void Update()
     {
         F_Move();
-        _contactWall.position = _player.position;
-        _mainCamera.position = _player.position + new Vector3(0, 5, -6.5f);
+        _contactWall.position = transform.position; //레이에 맞는 콜라이더는 플레이어와 같이 움직여야함
+        _mainCamera.position = transform.position + new Vector3(0, 5, -6.5f);//플레이어를 따라 움직이는 카메라
     }
 
     public void F_Initialize()
     {
         _isMooving = false;
         _isOut = false;
-        _player.position = new Vector3(0, 2.5f, 0);
-        _contactWall.position = _player.position;
+        transform.position = new Vector3(0, 2.5f, 0); //스테이지가 바뀌면서 플레이어 위치 초기화
+        _contactWall.position = transform.position;
     }
 
-    void F_Move()
+    void F_Move() //W A S D 키로 조작하는 함수
     {
         if (_isMooving || _isOut) return;
 
@@ -55,33 +54,33 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.S)) F_GetRollPoint(Vector3.back);
     }
 
-    void F_GetRollPoint(Vector3 dir)
+    void F_GetRollPoint(Vector3 dir) //조작키를 누르면 플레이어 위치에 따라 회전 기준점이 바뀜
     {
-        if (Physics.Raycast(_player.position, _player.up, out _hit, 5f, _contactWallLayer)) //Player 상단에 ray 쏘기
+        if (Physics.Raycast(transform.position, transform.up, out _hit, 5f, _contactWallLayer)) //Player 상단에 ray 쏘기
         {
-            switch (_hit.collider.name)
+            switch (_hit.collider.name) //ray에 맞은 물체 이름
             {
                 case "Y":
-                    _center = _player.position + Vector3.down + dir * 0.5f;
+                    _center = transform.position + Vector3.down + dir * 0.5f;
                     break;
                 case "Z":
                     if (dir == Vector3.left || dir == Vector3.right)
-                        _center = _player.position + Vector3.down * 0.5f + dir * 0.5f;
+                        _center = transform.position + Vector3.down * 0.5f + dir * 0.5f;
                     else
-                        _center = _player.position + dir + (Vector3.down * 0.5f);
+                        _center = transform.position + dir + (Vector3.down * 0.5f);
                     break;
                 case "X":
                     if(dir == Vector3.left || dir == Vector3.right)
-                        _center = _player.position + dir + (Vector3.down * 0.5f);
+                        _center = transform.position + dir + (Vector3.down * 0.5f);
                     else
-                        _center = _player.position + Vector3.down * 0.5f + dir * 0.5f;
+                        _center = transform.position + Vector3.down * 0.5f + dir * 0.5f;
                     break;
             }
         }
 
         //_rollPoint.transform.position = _center;
-        _axis = Vector3.Cross(Vector3.up, dir);
-        StartCoroutine(F_Rolling(_center, _axis));
+        _axis = Vector3.Cross(Vector3.up, dir); //두 벡터의 수직 벡터 반환
+        StartCoroutine(F_Rolling(_center, _axis)); //중심점과 수직 벡터를 넣어 회전
     }
 
     IEnumerator F_Rolling(Vector3 v_center, Vector3 v_axis)
@@ -91,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
         for (int i = 0; i < (90 / _rollSpeed); i++)
         {
-            _player.RotateAround(v_center, v_axis, _rollSpeed); //회전 기준점:center 회전 방향:axis
+            transform.RotateAround(v_center, v_axis, _rollSpeed); //회전 기준점:center 회전 방향:axis
             yield return new WaitForSeconds(0.01f);
         }
 
@@ -103,8 +102,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.transform.CompareTag("DeadPanel"))
         {
-            _isOut = true;
-            _player.GetComponent<BoxCollider>().isTrigger = true;
+            _isOut = true; // 조작 안되게
+            Debug.Log(transform.position);
+            transform.GetComponent<BoxCollider>().isTrigger = true;
         }
     }
 }

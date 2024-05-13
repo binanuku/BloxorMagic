@@ -14,6 +14,7 @@ public class PanelManager : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
+            //패널에 플레이어가 부딪히면 떨어짐
         }
     }
 }
