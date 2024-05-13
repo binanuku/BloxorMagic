@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Pipes;
@@ -32,8 +33,9 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         F_Move();
+        Debug.DrawRay(transform.position, transform.up * 2f, Color.red);
         _contactWall.position = transform.position; //레이에 맞는 콜라이더는 플레이어와 같이 움직여야함
-        _mainCamera.position = transform.position + new Vector3(0, 5, -6.5f);//플레이어를 따라 움직이는 카메라
+        _mainCamera.position = transform.position + new Vector3(0, 4, -5.5f);//플레이어를 따라 움직이는 카메라
     }
 
     public void F_Initialize()
@@ -48,11 +50,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_isMooving || _isOut) return;
 
-        if (Input.GetKey(KeyCode.A)) F_GetRollPoint(Vector3.left);
-        else if (Input.GetKey(KeyCode.D)) F_GetRollPoint(Vector3.right);
-        else if (Input.GetKey(KeyCode.W)) F_GetRollPoint(Vector3.forward);
-        else if (Input.GetKey(KeyCode.S)) F_GetRollPoint(Vector3.back);
+        if (Input.GetKeyDown(KeyCode.A)) F_GetRollPoint(Vector3.left);
+        else if (Input.GetKeyDown(KeyCode.D)) F_GetRollPoint(Vector3.right);
+        else if (Input.GetKeyDown(KeyCode.W)) F_GetRollPoint(Vector3.forward);
+        else if (Input.GetKeyDown(KeyCode.S)) F_GetRollPoint(Vector3.back);
     }
+
 
     void F_GetRollPoint(Vector3 dir) //조작키를 누르면 플레이어 위치에 따라 회전 기준점이 바뀜
     {
