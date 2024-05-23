@@ -1,10 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.IO.Pipes;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -50,10 +44,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_isMooving || _isOut) return;
 
-        if (Input.GetKeyDown(KeyCode.A)) F_GetRollPoint(Vector3.left);
-        else if (Input.GetKeyDown(KeyCode.D)) F_GetRollPoint(Vector3.right);
-        else if (Input.GetKeyDown(KeyCode.W)) F_GetRollPoint(Vector3.forward);
-        else if (Input.GetKeyDown(KeyCode.S)) F_GetRollPoint(Vector3.back);
+        if      (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) F_GetRollPoint(Vector3.left);
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) F_GetRollPoint(Vector3.right);
+        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) F_GetRollPoint(Vector3.forward);
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) F_GetRollPoint(Vector3.back);
     }
 
 
@@ -106,8 +100,6 @@ public class PlayerMovement : MonoBehaviour
         if (other.transform.CompareTag("DeadPanel"))
         {
             _isOut = true; // 조작 안되게
-            Debug.Log(transform.position);
-            transform.GetComponent<BoxCollider>().isTrigger = true;
         }
     }
 }
