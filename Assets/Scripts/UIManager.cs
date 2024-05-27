@@ -26,9 +26,6 @@ public class UIManager : MonoBehaviour
     }
 
     private static UIManager _instance;
-    [SerializeField] Button _retryBtn;
-    [SerializeField] Button _menuBtn;
-    [SerializeField] Button _nextBtn;
 
     [SerializeField] GameObject clearUI;
     void Awake()
@@ -45,19 +42,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void F_OnClearUI()
+    public void F_OnMenuUI()
     {
         clearUI.SetActive(true);
     }
 
-    public void F_OnDeadUI()
+    public void F_OnClickMain()
     {
-
-    }
-
-    public void F_OnClickMenu()
-    {
-        //메뉴 창으로 가기
+        //메인화면 가기
     }
     public void F_OnClickRetry()
     {

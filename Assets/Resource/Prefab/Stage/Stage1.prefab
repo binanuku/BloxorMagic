@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1068654619742603186}
   m_Layer: 0
   m_Name: DeadPanel (1)
-  m_TagString: Untagged
+  m_TagString: DeadPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &801839379073306094
 GameObject:
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 688179556542505355}
   m_Layer: 0
   m_Name: DeadPanel (6)
-  m_TagString: Untagged
+  m_TagString: DeadPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +104,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1017205261767037686
 GameObject:
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 6345551273235958614}
   m_Layer: 0
   m_Name: DeadPanel
-  m_TagString: Untagged
+  m_TagString: DeadPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2808082826698415317
 GameObject:
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 2879172558560578927}
   m_Layer: 0
   m_Name: DeadPanel (3)
-  m_TagString: Untagged
+  m_TagString: DeadPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,7 +210,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4413249820518993074
 GameObject:
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 9213998142222435307}
   m_Layer: 0
   m_Name: DeadPanel (4)
-  m_TagString: Untagged
+  m_TagString: DeadPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,7 +263,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5085510985190460448
 GameObject:
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 6998988691148130793}
   m_Layer: 0
   m_Name: DeadPanel (7)
-  m_TagString: Untagged
+  m_TagString: DeadPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -316,7 +316,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5587451332045957086
 GameObject:
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 4119108104237108499}
   m_Layer: 0
   m_Name: DeadPanel (5)
-  m_TagString: Untagged
+  m_TagString: DeadPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,7 +369,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8550133645033751666
 GameObject:
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 6855454708830792417}
   m_Layer: 0
   m_Name: DeadPanel (2)
-  m_TagString: Untagged
+  m_TagString: DeadPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -487,7 +487,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &87990662889506114
 PrefabInstance:
@@ -2047,6 +2047,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1239891260308814780}
     m_Modifications:
+    - target: {fileID: 2552599722137057222, guid: 634255ad3ef37204f8a5d6c1e4945058, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552599722137057222, guid: 634255ad3ef37204f8a5d6c1e4945058, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4459206288615959154, guid: 634255ad3ef37204f8a5d6c1e4945058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6

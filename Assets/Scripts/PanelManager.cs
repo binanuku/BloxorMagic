@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PanelManager : MonoBehaviour
 {
-
     private void Awake()
     {
         DontDestroyOnLoad(this);
