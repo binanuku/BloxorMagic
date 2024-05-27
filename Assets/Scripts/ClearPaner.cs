@@ -5,7 +5,6 @@ using UnityEngine;
 public class ClearPaner : PanelManager
 {
     Rigidbody clearRb;
-    [SerializeField] GameObject clearUI;
 
     private void Start()
     {
@@ -14,6 +13,5 @@ public class ClearPaner : PanelManager
     private void OnCollisionEnter(Collision collision)
     {
         F_Interaction(collision, clearRb);
-        clearUI.SetActive(true);
     }
 }

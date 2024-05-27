@@ -13,7 +13,7 @@ public class PanelManager : MonoBehaviour
     public void F_Interaction(Collision col, Rigidbody rb) {
         if (col.gameObject.CompareTag("Player"))
         {
-            rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
+            rb.isKinematic = false;
             //패널에 플레이어가 부딪히면 떨어짐
         }
     }

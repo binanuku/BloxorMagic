@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Player Object")]
     //[SerializeField] GameObject _rollPoint; 회전할 때 기준점 표시
     [SerializeField] Transform _contactWall; //플레이어가 쏘는 레이가 충돌할 벽
     [SerializeField] Transform _mainCamera; //카메라
-    Rigidbody _playerRb;
+    [SerializeField] Rigidbody _playerRb;
+    [SerializeField] BoxCollider _playerCol;
 
     private float _rollSpeed = 3; //회전 속도
     private bool _isMooving; //회전하는동안 추가 회전이 안되게 함
@@ -20,14 +22,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        _playerRb = transform.GetComponent<Rigidbody>();
         F_Initialize();
     }
 
     private void Update()
     {
         F_Move();
-        Debug.DrawRay(transform.position, transform.up * 2f, Color.red);
+        //Debug.DrawRay(transform.position, transform.up * 2f, Color.red);
         _contactWall.position = transform.position; //레이에 맞는 콜라이더는 플레이어와 같이 움직여야함
         _mainCamera.position = transform.position + new Vector3(0, 4, -5.5f);//플레이어를 따라 움직이는 카메라
     }
@@ -40,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         _contactWall.position = transform.position;
     }
 
-    void F_Move() //W A S D 키로 조작하는 함수
+    void F_Move() //W A S D/방향키로 조작
     {
         if (_isMooving || _isOut) return;
 
@@ -82,8 +83,8 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator F_Rolling(Vector3 v_center, Vector3 v_axis)
     {
-        _playerRb.constraints = RigidbodyConstraints.FreezeAll; //회전중에 얼리기
-        _isMooving = true;
+        _playerRb.isKinematic = true; //회전중에 얼리기
+        _isMooving = true; //회전중 추가회전 x
 
         for (int i = 0; i < (90 / _rollSpeed); i++)
         {
@@ -91,15 +92,16 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
 
-        _playerRb.constraints &= ~RigidbodyConstraints.FreezePositionY; //YPosition만 풀기
-        _isMooving = false;
+        _playerRb.isKinematic = false; //회전 종료 후 풀기
+        _isMooving = false; //회전 가능
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.CompareTag("DeadPanel"))
+        if (other.transform.CompareTag("DeadPanel")) //사망 체크 패널
         {
             _isOut = true; // 조작 안되게
+            _playerCol.isTrigger = true;
         }
     }
 }

@@ -13,5 +13,6 @@ public class GlassPaner : PanelManager
     private void OnCollisionEnter(Collision collision)
     {
         F_Interaction(collision, glassRb);
+        UIManager.Instance.F_OnClearUI();
     }
 }
