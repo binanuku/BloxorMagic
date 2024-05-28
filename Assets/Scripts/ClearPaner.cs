@@ -10,8 +10,10 @@ public class ClearPaner : PanelManager
     {
         clearRb = GetComponent<Rigidbody>();
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        F_Interaction(collision, clearRb);
+        F_Interaction(other, clearRb);
+        UIManager.Instance.F_OnClearUI();
     }
 }

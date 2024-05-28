@@ -10,9 +10,10 @@ public class GlassPaner : PanelManager
     {
         glassRb = GetComponent<Rigidbody>();
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        F_Interaction(collision, glassRb);
+        F_Interaction(other, glassRb);
         UIManager.Instance.F_OnClearUI();
     }
 }

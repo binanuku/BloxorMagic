@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    #region SingleTon
     public static UIManager Instance
     {
         get
@@ -26,9 +28,8 @@ public class UIManager : MonoBehaviour
     }
 
     private static UIManager _instance;
-
+    #endregion
     [SerializeField] GameObject clearUI;
-    [SerializeField] GameObject deadUI;
     void Awake()
     {
         // 중복된 인스턴스가 생성되지 않도록 체크
@@ -48,24 +49,33 @@ public class UIManager : MonoBehaviour
         clearUI.SetActive(true);
     }
 
-    public void F_OnDeadUI() 
-    {
-        deadUI.SetActive(true);
-    }
-
     public void F_OnClickMain()
     {
         //메인화면 가기
+        SceneManager.LoadScene(0);
         //메인 씬 가기
     }
     public void F_OnClickRetry()
     {
         //현재 스테이지 재시작
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if (sceneIndex > 0)
+            SceneManager.LoadScene(sceneIndex);
+        else
+            return;
         //씬 재시작
     }
     public void F_OnClickNext()
     {
         //다음 스테이지 시작
-        //씬 배열 만들고 다음 씬 시작
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        // 씬 개수 가져오기
+        int sceneCount = SceneManager.sceneCountInBuildSettings;
+
+        if (nextSceneIndex <= sceneCount)
+            SceneManager.LoadScene(nextSceneIndex);
+        else { }
+            //다음 씬이 없다면 없다는 문구 띄우기
     }
 }
