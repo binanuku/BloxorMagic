@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour
 
     private float _rollSpeed = 3; //회전 속도
     private bool _isMooving; //회전하는 동안 추가 회전이 안됨    true = 회전 x, false = 회전 o
-    private bool _isStart;   //바닥에 닿기 전 움직임 방지        true = 움직임 x, false = 움직임 o
-    private bool _isDead;    //사망하면 조작 안됨               true = 사망 o, false = 사망 x
+    [SerializeField] bool _isStart;   //바닥에 닿기 전 움직임 방지        true = 움직임 x, false = 움직임 o
+    [SerializeField] bool _isDead;    //사망하면 조작 안됨               true = 사망 o, false = 사망 x
 
 
     private void Start()
