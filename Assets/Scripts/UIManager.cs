@@ -68,8 +68,9 @@ public class UIManager : MonoBehaviour
     }
     public void F_OnClickNext()
     {
-        //다음 스테이지 시작
+        //다음 스테이지 인덱스
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
         // 씬 개수 가져오기
         int sceneCount = SceneManager.sceneCountInBuildSettings;
 

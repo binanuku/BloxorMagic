@@ -6065,7 +6065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7573738888493659376}
   - component: {fileID: 5272114399063969721}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MiddleCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6745,8 +6745,8 @@ Transform:
   m_Children:
   - {fileID: 3683027982356517785}
   - {fileID: 6667366294273822342}
-  - {fileID: 6064337122845524747}
   - {fileID: 7573738888493659376}
+  - {fileID: 6064337122845524747}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1392178967793520056
@@ -18506,7 +18506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6064337122845524747}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: OutLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
