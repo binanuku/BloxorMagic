@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     private static UIManager _instance;
 
     [SerializeField] GameObject clearUI;
+    [SerializeField] GameObject deadUI;
     void Awake()
     {
         // 중복된 인스턴스가 생성되지 않도록 체크
@@ -42,21 +43,29 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void F_OnMenuUI()
+    public void F_OnClearUI()
     {
         clearUI.SetActive(true);
+    }
+
+    public void F_OnDeadUI() 
+    {
+        deadUI.SetActive(true);
     }
 
     public void F_OnClickMain()
     {
         //메인화면 가기
+        //메인 씬 가기
     }
     public void F_OnClickRetry()
     {
         //현재 스테이지 재시작
+        //씬 재시작
     }
     public void F_OnClickNext()
     {
         //다음 스테이지 시작
+        //씬 배열 만들고 다음 씬 시작
     }
 }

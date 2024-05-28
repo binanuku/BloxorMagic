@@ -29,20 +29,21 @@ public class PlayerMovement : MonoBehaviour
     {
         F_Move();
         //Debug.DrawRay(transform.position, transform.up * 2f, Color.red);
-        _contactWall.position = transform.position; //레이에 맞는 콜라이더는 플레이어와 같이 움직여야함
-        _mainCamera.position = transform.position + new Vector3(0, 4, -5.5f);//플레이어를 따라 움직이는 카메라
+
     }
 
     public void F_Initialize()
     {
         _isMooving = false;
-        _isOut = false;
-        transform.position = new Vector3(0, 2.5f, 0); //스테이지가 바뀌면서 플레이어 위치 초기화
-        _contactWall.position = transform.position;
+        _isOut = true;
+        transform.position = new Vector3(0, 2.5f, 0); //스테이지가 바뀜/현재 스테이지 재시작 = 플레이어 위치 초기화
     }
 
     void F_Move() //W A S D/방향키로 조작
     {
+        _contactWall.position = transform.position; //레이에 맞는 콜라이더는 플레이어와 같이 움직여야함
+        _mainCamera.position = transform.position + new Vector3(0, 4, -5.5f);//플레이어를 따라 움직이는 카메라
+
         if (_isMooving || _isOut) return;
 
         if      (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) F_GetRollPoint(Vector3.left);
@@ -102,6 +103,16 @@ public class PlayerMovement : MonoBehaviour
         {
             _isOut = true; // 조작 안되게
             _playerCol.isTrigger = true;
+            //죽으면 페이드 인 씬 재시작 페이드 아웃
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Panel"))
+        {
+            _isOut = false;
         }
     }
 }
