@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GlassPaner : PanelManager
+public class GlassPaner : MonoBehaviour
 {
     Rigidbody glassRb;
 
@@ -13,7 +15,6 @@ public class GlassPaner : PanelManager
 
     private void OnTriggerEnter(Collider other)
     {
-        F_Interaction(other, glassRb);
-        UIManager.Instance.F_OnClearUI();
+        PanelManager.Instance.F_Interaction(other, glassRb);
     }
 }

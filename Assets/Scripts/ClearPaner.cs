@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClearPaner : PanelManager
+public class ClearPaner : MonoBehaviour
 {
     Rigidbody clearRb;
 
@@ -13,7 +13,7 @@ public class ClearPaner : PanelManager
 
     private void OnTriggerEnter(Collider other)
     {
-        F_Interaction(other, clearRb);
+        PanelManager.Instance.F_Interaction(other, clearRb);
         UIManager.Instance.F_OnClearUI();
     }
 }
