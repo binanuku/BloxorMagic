@@ -6,29 +6,6 @@ using System;
 
 public class UIManager : MonoBehaviour
 {
-    #region SingleTon
-    public static UIManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                // 기존 인스턴스가 없으면 새로운 인스턴스 생성
-                _instance = FindObjectOfType<UIManager>();
-
-                if (_instance == null)
-                {
-                    GameObject singletonObject = new GameObject();
-                    _instance = singletonObject.AddComponent<UIManager>();
-                    singletonObject.name = typeof(UIManager).ToString() + " (Singleton)";
-                }
-            }
-            return _instance;
-        }
-    }
-
-    private static UIManager _instance;
-    #endregion
 
 
     [Header("DefaultUI")]
@@ -49,22 +26,26 @@ public class UIManager : MonoBehaviour
     [Header("SettingUI")]
     [SerializeField] GameObject settingUI; //설정 화면 UI
 
+
     //[Header("Main Object")]
 
+    #region SingleTon
+    public static UIManager Instance { get; private set; }
 
-    void Awake()
+    private void Awake()
     {
         // 중복된 인스턴스가 생성되지 않도록 체크
-        if (_instance == null)
+        if (Instance == null)
         {
-            _instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject); // 씬 전환 시에도 파괴되지 않도록 설정
         }
-        else if (_instance != this)
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
     }
+    #endregion
 
     public void F_OnClearUI()
     {
@@ -118,13 +99,6 @@ public class UIManager : MonoBehaviour
         //다음 씬이 없다면 없다는 문구 띄우기
     }
 
-    public void F_GetStage(GameObject clickedBtn) //스테이지 선택 버튼
-    {
-        //클릭한 스테이지 이름을 int형으로 변환
-        int stage = Convert.ToInt32(clickedBtn.name);
-        SceneManager.LoadScene(stage); //해당 스테이지 시작
-    }
-
     public void F_GetCurrentTime(int currentTime) //현재 시간을 기본 화면에 적용
     {
         // 초 단위 시간을 받아 분,초로 변환
@@ -151,9 +125,9 @@ public class UIManager : MonoBehaviour
         deadPlayTimeTxt.text = "PlayTime : " + currentTimeTxt.text;
     }
 
-    public void F_GetStar(int stageIdx)
+    public void F_GetClear(int stageIdx)
     {
-        Debug.Log(GameManager.Instance.stageBtn[stageIdx].transform.GetChild(3));
+        GameManager.Instance._isClear[stageIdx] = true;
     }
 
     #region SettingUI

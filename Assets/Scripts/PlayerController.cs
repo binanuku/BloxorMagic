@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
     private void F_Movement()
     {
-        if (_isMooving || _isDead) return; //죽거나 회전할 때 예외처리
+        if (_isMooving || _isDead || !_isStart) return; //죽거나 회전할 때 예외처리
 
         //W A S D & 방향키로 조작
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) F_GetRollPoint(Vector3.left);

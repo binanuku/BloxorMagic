@@ -411,7 +411,7 @@ RectTransform:
   m_GameObject: {fileID: 129017029}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 914079910}
@@ -420,11 +420,11 @@ RectTransform:
   - {fileID: 932746597}
   - {fileID: 227824735}
   - {fileID: 195097925}
-  m_Father: {fileID: 328446202}
+  m_Father: {fileID: 868084811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0014648438, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2500, y: 1697}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &129017031
@@ -826,8 +826,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 600005258}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1831787345}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: F_GetStage
         m_Mode: 2
         m_Arguments:
@@ -1218,8 +1218,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 600005258}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1831787345}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: F_GetStage
         m_Mode: 2
         m_Arguments:
@@ -1450,7 +1450,7 @@ GameObject:
   - component: {fileID: 328446204}
   - component: {fileID: 328446203}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1472,7 +1472,6 @@ RectTransform:
   - {fileID: 850276676}
   - {fileID: 609343486}
   - {fileID: 963617416}
-  - {fileID: 129017030}
   m_Father: {fileID: 868084811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2852,60 +2851,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598567926}
   m_CullTransparentMesh: 1
---- !u!1 &600005256
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 600005257}
-  - component: {fileID: 600005258}
-  m_Layer: 0
-  m_Name: UIManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &600005257
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600005256}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1790760782}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &600005258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600005256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5d57125eeb2cbd4cb3f0ef040b66a52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultUI: {fileID: 0}
-  currentTimeTxt: {fileID: 0}
-  moveCountTxt: {fileID: 0}
-  clearUI: {fileID: 0}
-  clearPlayTimeTxt: {fileID: 0}
-  clearMoveCountTxt: {fileID: 0}
-  deadUI: {fileID: 0}
-  deadPlayTimeTxt: {fileID: 0}
-  deadMoveCountTxt: {fileID: 0}
-  settingUI: {fileID: 0}
 --- !u!1 &608630347
 GameObject:
   m_ObjectHideFlags: 0
@@ -3494,8 +3439,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 600005258}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1831787345}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: F_GetStage
         m_Mode: 2
         m_Arguments:
@@ -4917,6 +4862,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 328446202}
+  - {fileID: 129017030}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5026,8 +4972,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 600005258}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1831787345}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: F_GetStage
         m_Mode: 2
         m_Arguments:
@@ -6251,8 +6197,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 600005258}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1831787345}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: F_GetStage
         m_Mode: 2
         m_Arguments:
@@ -6983,8 +6929,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 600005258}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1831787345}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: F_GetStage
         m_Mode: 2
         m_Arguments:
@@ -7304,8 +7250,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 600005258}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1831787345}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: F_GetStage
         m_Mode: 2
         m_Arguments:
@@ -7456,8 +7402,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 600005258}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1831787345}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: F_GetStage
         m_Mode: 2
         m_Arguments:
@@ -8109,8 +8055,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 600005258}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1831787345}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: F_GetStage
         m_Mode: 2
         m_Arguments:
@@ -9006,62 +8952,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790622445}
   m_CullTransparentMesh: 1
---- !u!1 &1790760781
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1790760782}
-  - component: {fileID: 1790760783}
-  m_Layer: 0
-  m_Name: Managers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1790760782
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1790760781}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 600005257}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1790760783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1790760781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3adda05568844cd49be3f5ff7c81ff6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageBtn:
-  - {fileID: 1168448532}
-  - {fileID: 1687133135}
-  - {fileID: 1327102778}
-  - {fileID: 869827858}
-  - {fileID: 196207227}
-  - {fileID: 656348960}
-  - {fileID: 267548568}
-  - {fileID: 1439393319}
-  - {fileID: 2001839654}
-  - {fileID: 1410555662}
 --- !u!1 &1820045351
 GameObject:
   m_ObjectHideFlags: 0
@@ -9243,6 +9133,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821766331}
   m_CullTransparentMesh: 1
+--- !u!1 &1831787343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1831787344}
+  - component: {fileID: 1831787345}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1831787344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831787343}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1831787345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831787343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3adda05568844cd49be3f5ff7c81ff6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageList:
+  - {fileID: 1168448530}
+  - {fileID: 1687133133}
+  - {fileID: 1327102776}
+  - {fileID: 869827856}
+  - {fileID: 196207225}
+  - {fileID: 656348958}
+  - {fileID: 267548566}
+  - {fileID: 1439393317}
+  - {fileID: 2001839652}
+  - {fileID: 1410555660}
+  _isClear: 
 --- !u!1 &1883982337
 GameObject:
   m_ObjectHideFlags: 0
@@ -9602,8 +9548,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 600005258}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1831787345}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: F_GetStage
         m_Mode: 2
         m_Arguments:
@@ -10013,4 +9959,4 @@ SceneRoots:
   - {fileID: 833596709}
   - {fileID: 868084811}
   - {fileID: 749769053}
-  - {fileID: 1790760782}
+  - {fileID: 1831787344}

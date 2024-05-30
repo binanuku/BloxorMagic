@@ -10090,7 +10090,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593405082}
   serializedVersion: 4
-  m_Mass: 3
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -10332,16 +10332,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultUI: {fileID: 2033026257}
-  clearUI: {fileID: 880032112}
-  deadUI: {fileID: 1473943652}
-  settingUI: {fileID: 1773745542}
   currentTimeTxt: {fileID: 1629385488}
   moveCountTxt: {fileID: 878513656}
+  clearUI: {fileID: 880032112}
   clearPlayTimeTxt: {fileID: 705678781}
   clearMoveCountTxt: {fileID: 1501251273}
+  deadUI: {fileID: 1473943652}
   deadPlayTimeTxt: {fileID: 159245553}
   deadMoveCountTxt: {fileID: 433304431}
-  stageBtn: []
+  settingUI: {fileID: 1773745542}
 --- !u!1 &1629385485
 GameObject:
   m_ObjectHideFlags: 0
