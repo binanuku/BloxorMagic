@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ClearPaner : MonoBehaviour
 {
@@ -13,5 +14,8 @@ public class ClearPaner : MonoBehaviour
     {
         PanelManager.Instance.F_Interaction(other, clearRb);
         UIManager.Instance.F_OnClearUI();
+        UIManager.Instance.F_GetData();
+        //UIManager.Instance.F_GetStar(SceneManager.GetActiveScene().buildIndex);
+        //몇 스테이지인지 정보는 씬 인덱스
     }
 }
