@@ -15,7 +15,6 @@ public class ClearPaner : MonoBehaviour
         PanelManager.Instance.F_Interaction(other, clearRb); //닿으면 클리어 패널 떨어트리기
         UIManager.Instance.F_OnClearUI(); //ClearUI 켜기
         UIManager.Instance.F_GetData(); //사망, 클리어 UI에 움직인 횟수, 걸린 시간 표시
-        UIManager.Instance.F_GetClear(SceneManager.GetActiveScene().buildIndex - 1);
         //몇 스테이지인지 정보는 씬 인덱스
     }
 }

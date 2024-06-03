@@ -125,14 +125,12 @@ public class PlayerController : MonoBehaviour
         _isMooving = false; //회전 가능
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("DeadPanel")) //사망 체크 패널
         {
-            _isDead = true; // 조작 안되게 함
-            _playerCol.isTrigger = true; //떨어지게 함
-            UIManager.Instance.F_OnDeadUI(); //사망 UI 띄우기
-            UIManager.Instance.F_GetData(); //최종 시간, 움직인 횟수 넣기
+            F_PlayerDead();
         }
     }
 
@@ -144,5 +142,12 @@ public class PlayerController : MonoBehaviour
             _isDead = false;
             _isStart = true;
         }
+    }
+    public void F_PlayerDead()
+    {
+        _isDead = true; // 조작 안되게 함
+        _playerCol.isTrigger = true; //떨어지게 함
+        StartCoroutine(UIManager.Instance.F_OnDeadUI()); //사망 UI 띄우기
+        UIManager.Instance.F_GetData(); //최종 시간, 움직인 횟수 넣기
     }
 }

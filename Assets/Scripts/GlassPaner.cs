@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GlassPaner : MonoBehaviour
 {
@@ -11,6 +13,12 @@ public class GlassPaner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        F_GlassActive(other);
+    }
+
+    public void F_GlassActive(Collider other)
+    {
         PanelManager.Instance.F_Interaction(other, glassRb);
+        StartCoroutine(UIManager.Instance.F_OnDeadUI());
     }
 }

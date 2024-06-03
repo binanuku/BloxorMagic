@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 using System;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -52,8 +53,9 @@ public class UIManager : MonoBehaviour
         clearUI.SetActive(true);
     }
 
-    public void F_OnDeadUI()
+    public IEnumerator F_OnDeadUI()
     {
+        yield return new WaitForSeconds(1f);
         deadUI.SetActive(true);
     }
 
@@ -123,11 +125,6 @@ public class UIManager : MonoBehaviour
         
         clearPlayTimeTxt.text = "PlayTime : " + currentTimeTxt.text;
         deadPlayTimeTxt.text = "PlayTime : " + currentTimeTxt.text;
-    }
-
-    public void F_GetClear(int stageIdx)
-    {
-        GameManager.Instance._isClear[stageIdx] = true;
     }
 
     #region SettingUI
