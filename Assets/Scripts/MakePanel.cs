@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class MakePanel : MonoBehaviour
 {
-    Rigidbody makeRb;
-
-    private void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        makeRb = GetComponent<Rigidbody>();
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        PanelManager.Instance.F_CreatePanel(collision, makeRb);
+        PanelManager.Instance.F_MakePanel(other);
     }
 }

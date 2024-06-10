@@ -9,6 +9,7 @@ TagManager:
   - DeadPanel
   - StartPanel
   - GlassPanel
+  - InvisiblePanel
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - GlassPanel
   - GeneratePanel
   - Interaction
-  - 
+  - InvisiblePanel
   - 
   - 
   - 
