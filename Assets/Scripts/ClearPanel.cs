@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ClearPaner : MonoBehaviour
+public class ClearPanel : MonoBehaviour
 {
     Rigidbody clearRb;
 

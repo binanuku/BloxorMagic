@@ -27,4 +27,17 @@ public class PanelManager : MonoBehaviour
             //패널에 플레이어가 부딪히면 떨어짐
         }
     }
+    public void F_GlassActive(Collider col, Rigidbody rb)
+    {
+        F_Interaction(col, rb);
+        StartCoroutine(UIManager.Instance.F_OnDeadUI());
+    }
+
+    public void F_CreatePanel(Collision col, Rigidbody rb)
+    {
+        if (col.transform.CompareTag("Interaction"))
+        {
+
+        }
+    }
 }
