@@ -2,26 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class PanelManager : MonoBehaviour
+public class PanelManager : SingleTon<PanelManager>
 {
-    #region SingleTon
-    public static PanelManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        // 중복된 인스턴스가 생성되지 않도록 체크
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // 씬 전환 시에도 파괴되지 않도록 설정
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
-    #endregion
-
     GameObject[] invisiblePanel;
 
     private void Start()

@@ -5,27 +5,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingleTon<GameManager>
 {
     public Transform[] stageList;
     public bool[] _isClear;
 
-    #region SingleTon
-    public static GameManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 오브젝트가 파괴되지 않도록 설정
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-    #endregion
     private void Start()
     {
         _isClear = new bool[stageList.Length];

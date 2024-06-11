@@ -5,10 +5,8 @@ using Unity.VisualScripting;
 using System;
 using System.Collections;
 
-public class UIManager : MonoBehaviour
+public class UIManager : SingleTon<UIManager>
 {
-
-
     [Header("DefaultUI")]
     [SerializeField] GameObject defaultUI; //상시 표시 UI
     [SerializeField] Text currentTimeTxt; //실시간 현재시간
@@ -29,24 +27,6 @@ public class UIManager : MonoBehaviour
 
 
     //[Header("Main Object")]
-
-    #region SingleTon
-    public static UIManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        // 중복된 인스턴스가 생성되지 않도록 체크
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // 씬 전환 시에도 파괴되지 않도록 설정
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
-    #endregion
 
     public void F_OnClearUI()
     {
